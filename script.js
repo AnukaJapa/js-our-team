@@ -50,3 +50,55 @@ for(let elemento of team){
         `
     );
 }
+
+//* MILESTONE 2:
+//* Stampare le stesse informazioni su DOM sottoforma di stringhe
+function displayTeamInAList(array){
+    //prendere contenitore da html
+    let container = document.querySelector(".container");
+    //creare elemento h2 per titolare la lista (dove saranno collocati i nomi dei membri del team)
+    let heading = document.createElement("h2");
+    heading.textContent = "TEAM MEMBERS (click to view info)";
+    container.appendChild(heading);
+    
+    //creare la lista ordinata (per vedere quanti membri ci sono)dei membri del team. 
+    let orderedListForTeamNames = document.createElement("ol");
+    container.append(orderedListForTeamNames);
+
+//creare elementi da collocare all'interno di questo ol dei membri del team
+    for(let i = 0; i<array.length; i++){
+    let listOpened = false; //non hai ancora cliccato per vedere info
+
+       let newMemberName = document.createElement("li");
+       newMemberName.textContent = `${array[i].nome}`;
+       orderedListForTeamNames.append(newMemberName);
+
+       newMemberName.addEventListener("click", ()=> {
+if(listOpened) {
+let listInfo = document.querySelector(".listInfo");
+listInfo.remove();
+listOpened = false;
+    return
+}   else {
+let listInfo = document.createElement("ul");
+listInfo.classList.add("listInfo");
+let liRuolo = document.createElement("li");
+let liFoto = document.createElement("li");
+
+liRuolo.textContent =` ruolo: ${array[i].ruolo}`;
+liFoto.textContent =` foto: ${array[i].foto}`;
+
+newMemberName.append(listInfo);
+listInfo.append(liRuolo);
+listInfo.append(liFoto);
+listOpened = true;
+}
+       })
+
+    }
+}
+
+displayTeamInAList(team);
+
+
+
