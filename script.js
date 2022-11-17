@@ -104,23 +104,32 @@ listOpened = true;
 //* Trasformare la stringa foto in una immagine effettiva
 //*BONUS 2:
 //*Organizzare i singoli membri in card/schede (BOOTSTRAP!)
+printTeamOnDisplay(team);
 
-function printTeamOnDisplay(team){
-    for(let i =0; i<team.length; i++){
-        createMemberBox(team[i]);
+function printTeamOnDisplay(teamName){
+    for(let i =0; i<teamName.length; i++){
+        createMemberBox(teamName[i]);
         }
 }
 
+function addBootstrapClasses(item){
+    item.classList.add("col-11");
+    item.classList.add("col-sm-7")
+    item.classList.add("col-md-5");
+    item.classList.add("col-xl-3");
+    item.classList.add("col-xxl-3");
+    item.classList.add("text-center");
+    item.classList.add("m-3");
+    item.classList.add("p-0");
+    item.classList.add("shadow");
+    item.classList.add("rounded");
+    item.style.backgroundColor="#ebf0fa";
 
-function addBootstrapClasses(box){
-    box.classList.add("col-11");
-    box.classList.add("col-sm-7")
-    box.classList.add("col-md-5");
-    box.classList.add("col-xl-3");
-    box.classList.add("col-xxl-3");
-    box.classList.add("text-center");
-    box.classList.add("m-3");
-}    
+}  
+
+function BootsSpaceElements(item){
+    item.classList.add("p-2");
+}
 
 //crea i div, boxes dove sarà collocato tuti informazioni (foto, ruolo e nome) di ciascun membro. 
 
@@ -136,6 +145,9 @@ let textRuolo = document.createElement("p");
 newImage.src = `img/${member.foto}`;
 textName.textContent = `${member.nome}`;
 textRuolo.textContent = `${member.ruolo}`;
+BootsSpaceElements(textName);
+BootsSpaceElements(textRuolo);
+
 
 
 allBoxesDiv.append(eachBoxDiv);
