@@ -1,3 +1,7 @@
+//^ ESERCISIO: Our Team
+//*MILESTONE 0:
+//*Creare l’array di oggetti con le informazioni fornite.
+
 const team = [
     {
         nome:"Wayne Barnett",
@@ -30,3 +34,19 @@ const team = [
         foto:" barbara-ramos-graphic-designer.jpg" 
     }
 ]
+
+//* MILESTONE 1:
+//*Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
+
+for(let elemento of team){
+    console.log(
+        `
+----------------------------------------
+    UTENTE ${team.indexOf(elemento)+1}
+  nome: ${elemento.nome}
+  ruolo:${elemento.ruolo}
+  foto:${elemento.foto}
+-----------------------------------------
+        `
+    );
+}
