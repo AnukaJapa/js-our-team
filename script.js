@@ -111,30 +111,27 @@ let eachBoxDiv = document.createElement("div");
 
 
 let newImage = document.createElement("img");
-let h2 = document.createElement("h2");
-let h3 = document.createElement("h3");
+let textName = document.createElement("h3");
+let textRuolo = document.createElement("p");
 
 
 newImage.src = `img/${member.foto}`;
-h2.textContent = `${member.nome}`;
-h3.textContent = `${member.ruolo}`;
+textName.textContent = `${member.nome}`;
+textRuolo.textContent = `${member.ruolo}`;
 
 eachBoxDiv.classList.add("col-11");
-eachBoxDiv.classList.add("col-sm-5")
+eachBoxDiv.classList.add("col-sm-7")
 eachBoxDiv.classList.add("col-md-5");
 eachBoxDiv.classList.add("col-xl-3");
 eachBoxDiv.classList.add("col-xxl-3");
 eachBoxDiv.classList.add("text-center");
-eachBoxDiv.classList.add("m-5");
-
-
-
+eachBoxDiv.classList.add("m-3");
 
 
 allBoxesDiv.append(eachBoxDiv);
 eachBoxDiv.append(newImage);
-eachBoxDiv.append(h2);
-eachBoxDiv.append(h3);
+eachBoxDiv.append(textName);
+eachBoxDiv.append(textRuolo);
 }
 
 for(let i =0; i<team.length; i++){
