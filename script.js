@@ -26,12 +26,12 @@ const team = [
     {
         nome:"Scott Estrada",
         ruolo:"Developer",
-        foto:" scott-estrada-developer.jpg" 
+        foto:"scott-estrada-developer.jpg" 
     },
     {
         nome:"Barbara Ramos",
         ruolo:"Graphic Designer",
-        foto:" barbara-ramos-graphic-designer.jpg" 
+        foto:"barbara-ramos-graphic-designer.jpg" 
     }
 ]
 
@@ -55,7 +55,7 @@ for(let elemento of team){
 //* Stampare le stesse informazioni su DOM sottoforma di stringhe
 function displayTeamInAList(array){
     //prendere contenitore da html
-    let container = document.querySelector(".container");
+    let container = document.querySelector(".myContainer");
     //creare elemento h2 per titolare la lista (dove saranno collocati i nomi dei membri del team)
     let heading = document.createElement("h2");
     heading.textContent = "TEAM MEMBERS (click to view info)";
@@ -98,7 +98,45 @@ listOpened = true;
     }
 }
 
-displayTeamInAList(team);
+//displayTeamInAList(team);
+
+//* BONUS 1:
+//* Trasformare la stringa foto in una immagine effettiva
+//*BONUS 2:
+//*Organizzare i singoli membri in card/schede (BOOTSTRAP!)
+
+function createMemberBox(member){
+let allBoxesDiv = document.querySelector(".boxesDisplayDiv");
+let eachBoxDiv = document.createElement("div");
+
+
+let newImage = document.createElement("img");
+let h2 = document.createElement("h2");
+let h3 = document.createElement("h3");
+
+
+newImage.src = `img/${member.foto}`;
+h2.textContent = `${member.nome}`;
+h3.textContent = `${member.ruolo}`;
+
+eachBoxDiv.classList.add("col-11");
+eachBoxDiv.classList.add("col-sm-5")
+eachBoxDiv.classList.add("col-md-5");
+eachBoxDiv.classList.add("col-xl-3");
+eachBoxDiv.classList.add("col-xxl-3");
+eachBoxDiv.classList.add("text-center");
+eachBoxDiv.classList.add("m-5");
 
 
 
+
+
+allBoxesDiv.append(eachBoxDiv);
+eachBoxDiv.append(newImage);
+eachBoxDiv.append(h2);
+eachBoxDiv.append(h3);
+}
+
+for(let i =0; i<team.length; i++){
+createMemberBox(team[i]);
+}
