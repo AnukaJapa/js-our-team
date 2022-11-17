@@ -105,10 +105,28 @@ listOpened = true;
 //*BONUS 2:
 //*Organizzare i singoli membri in card/schede (BOOTSTRAP!)
 
+function printTeamOnDisplay(team){
+    for(let i =0; i<team.length; i++){
+        createMemberBox(team[i]);
+        }
+}
+
+
+function addBootstrapClasses(box){
+    box.classList.add("col-11");
+    box.classList.add("col-sm-7")
+    box.classList.add("col-md-5");
+    box.classList.add("col-xl-3");
+    box.classList.add("col-xxl-3");
+    box.classList.add("text-center");
+    box.classList.add("m-3");
+}    
+
+//crea i div, boxes dove sarà collocato tuti informazioni (foto, ruolo e nome) di ciascun membro. 
+
 function createMemberBox(member){
 let allBoxesDiv = document.querySelector(".boxesDisplayDiv");
 let eachBoxDiv = document.createElement("div");
-
 
 let newImage = document.createElement("img");
 let textName = document.createElement("h3");
@@ -119,21 +137,17 @@ newImage.src = `img/${member.foto}`;
 textName.textContent = `${member.nome}`;
 textRuolo.textContent = `${member.ruolo}`;
 
-eachBoxDiv.classList.add("col-11");
-eachBoxDiv.classList.add("col-sm-7")
-eachBoxDiv.classList.add("col-md-5");
-eachBoxDiv.classList.add("col-xl-3");
-eachBoxDiv.classList.add("col-xxl-3");
-eachBoxDiv.classList.add("text-center");
-eachBoxDiv.classList.add("m-3");
-
 
 allBoxesDiv.append(eachBoxDiv);
 eachBoxDiv.append(newImage);
 eachBoxDiv.append(textName);
 eachBoxDiv.append(textRuolo);
+
+addBootstrapClasses(eachBoxDiv);
 }
 
-for(let i =0; i<team.length; i++){
-createMemberBox(team[i]);
-}
+
+
+
+
+
